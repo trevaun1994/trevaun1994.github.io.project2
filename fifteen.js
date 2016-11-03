@@ -30,7 +30,34 @@ window.onload = function(){
         piece[i].style.backgroundPosition= '-' + piece[i].style.left + ' ' + '-' + offsetTOP;
         
     }
-    
-    piece[0].style.backgroundPosition= '-' + left[14] + ' ' + '-' + top[14];
-    
+    if (movable(top, left))
+            {
+            this.className = 'movablepiece'; 
+            }    
 }
+
+function movable(top,left){
+    for (var i=0; i<top.length;i++){
+        elu = elementFromPoint(top[i]-10, left[i]);
+        eld = elementFromPoint(top[i] + 110, left[i]);
+        ell = elementFromPoint(top[i], left[i] + 110);
+        elr = elementFromPoint(top[i], left[i] -10);
+        if ( elu.style.background == null | eld.style.background ==null | ell.style.background ==null | elr.style.background ==null ){
+            return true;
+        }
+       
+    }
+}
+
+shufflebutton.onclick = function() {
+    
+    var timerVar = setInterval(countTimer, 1000);
+    var totalSeconds = 0;   
+    ++totalSeconds;
+    var hour = Math.floor(totalSeconds /3600);
+    var minute = Math.floor((totalSeconds - hour*3600)/60);
+    var seconds = totalSeconds - (hour*3600 + minute*60);
+    document.getElementsByTagName("h1").innerHTML ="Fifteen Puzzle  Time Elasped: " hour + ":" + minute + ":" + seconds;
+}
+
+       

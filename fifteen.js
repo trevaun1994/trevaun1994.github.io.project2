@@ -49,15 +49,6 @@ function movable(top,left){
     }
 }
 
-shufflebutton.onclick = function() {
-    
-    var timerVar = setInterval(countTimer, 1000);
-    var totalSeconds = 0;   
-    ++totalSeconds;
-    var hour = Math.floor(totalSeconds /3600);
-    var minute = Math.floor((totalSeconds - hour*3600)/60);
-    var seconds = totalSeconds - (hour*3600 + minute*60);
-    document.getElementsByTagName("h1").innerHTML ="Fifteen Puzzle  Time Elasped: " hour + ":" + minute + ":" + seconds;
-}
+
 
        
